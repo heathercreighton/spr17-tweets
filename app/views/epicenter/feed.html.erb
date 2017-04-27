@@ -1,0 +1,17 @@
+<h1>@<%= current_user.username %>'s Tweety Feed</h1>
+<p>Here is what your "friends" are saying:</p>
+
+
+
+
+<div>
+    <% @following_tweets.each do |tweet| %>
+        <div class="well">
+	    <p class="username"><strong>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></strong> said...</p> 
+	    <p class="message"><%= tweet.message.html_safe %></p>
+	</div>
+    <% end %>
+</div>
+
+
+<%= link_to "New Tweet", new_tweet_path, class: "btn btn-default" %>
