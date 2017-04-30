@@ -25,6 +25,18 @@ class EpicenterController < ApplicationController
   	current_user.following.delete(params[:id].to_i)
   	current_user.save
   end
+
+  def epi_tweet
+
+    @tweet = Tweet.new
+
+    @tweet.message = "#{params[:tweet][:message]}"
+    @tweet.user_id = "#{params[:tweet][:user_id].to_i}"
+
+    @tweet.save
+    redirect_to root_path
+
+  end  
 end
 
 

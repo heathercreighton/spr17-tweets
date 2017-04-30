@@ -1,17 +1,25 @@
-<h1>@<%= current_user.username %>'s Tweety Feed</h1>
+<h1><%= image_tag current_user.avatar.thumb %>@<%= current_user.username %>'s Tweety Feed</h1>
 <p>Here is what your "friends" are saying:</p>
 
 
 
-
 <div>
-    <% @following_tweets.each do |tweet| %>
-        <div class="well">
+  <% @following_tweets.each do |tweet| %>
+    <div class="well">
 	    <p class="username"><strong>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></strong> said...</p> 
 	    <p class="message"><%= tweet.message.html_safe %></p>
-	</div>
-    <% end %>
+		</div>
+  <% end %>
 </div>
 
 
-<%= link_to "New Tweet", new_tweet_path, class: "btn btn-default" %>
+<div class="well">
+
+	<%= form_for Tweet.new, url: {action: "epi_tweet"} do |f| %>
+	  <%= f.text_field :message %>
+	  <%= f.hidden_field :user_id, value: current_user.id %>
+	  <%= f.submit "Create Tweet" %>
+	<% end %>
+
+</div>
+

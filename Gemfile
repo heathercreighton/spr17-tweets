@@ -23,6 +23,8 @@ gem 'carrierwave'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
+gem 'mini_magick'
+
 
 
 gem 'turbolinks'
