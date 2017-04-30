@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post 'epicenter/epi_tweet'
   get 'epicenter/epi_tweet'
 
+  get 'tweeters' => 'epicenter#all_users'
+
   resources :tweets
   devise_for :users
 

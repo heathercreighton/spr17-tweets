@@ -1,0 +1,10 @@
+<h1>The Tweeters</h1>
+
+	
+	<% @users.each do |user| %>
+
+		<p><%= link_to user.username, show_user_path(id: user.id) %> <%image_tag user.avatar.thumb %></p>
+		<p><%= user.bio %></p>
+		<p><%= user.location %></p>
+	<% end %>	
+

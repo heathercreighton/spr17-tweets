@@ -25,7 +25,7 @@ gem 'font-awesome-rails'
 
 gem 'mini_magick'
 
-
+gem 'rails-timeago', '~> 2.0'
 
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

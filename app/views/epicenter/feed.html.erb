@@ -8,6 +8,7 @@
     <div class="well">
 	    <p class="username"><strong>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></strong> said...</p> 
 	    <p class="message"><%= tweet.message.html_safe %></p>
+	    <p><%= timeago_tag tweet.created_at, :nojs => true, :limit => 10.days.ago %></p>
 		</div>
   <% end %>
 </div>

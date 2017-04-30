@@ -20,3 +20,18 @@
 	<p><%= tweet.message %></p>
     </div>
 <% end %>
+
+
+<% if @user.id == current_user.id %>
+
+<div class="well">
+
+    <%= form_for Tweet.new, url: {action: "epi_tweet"} do |f| %>
+      <%= f.text_field :message %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit "Create Tweet" %>
+    <% end %>
+
+</div>
+
+<% end %>
