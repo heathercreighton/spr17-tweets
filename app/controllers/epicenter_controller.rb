@@ -1,4 +1,7 @@
 class EpicenterController < ApplicationController
+
+include TweetsHelper
+
   def feed
   	@following_tweets = []
 
@@ -38,9 +41,22 @@ class EpicenterController < ApplicationController
     @tweet.user_id = "#{params[:tweet][:user_id].to_i}"
 
     @tweet.save
+
+ 
+
+    @tweet = get_tagged(@tweet)
+
+       
+
     redirect_to root_path
 
   end  
+
+
+  def tag_tweets
+    @tag = Tag.find(params[:id])
+  end  
+
 end
 
 

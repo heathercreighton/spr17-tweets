@@ -17,7 +17,7 @@
 <% @user.tweets.each do |tweet| %>
     <div>
         <p>@<%= @user.username %></p>
-	<p><%= tweet.message %></p>
+	<p><%= tweet.message.html_safe %></p>
     </div>
 <% end %>
 
